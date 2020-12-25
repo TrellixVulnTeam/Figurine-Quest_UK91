@@ -15,21 +15,6 @@ class Item:
         self.is_visible = is_visible
         self.is_takeable = is_takeable
 
-    def get_name(self):
-        return self.name
-
-    def get_short_desc(self):
-        return self.short_desc
-
-    def get_long_desc(self):
-        return self.long_desc
-
-    def get_is_visible(self):
-        return self.is_visible
-
-    def get_is_takeable(self):
-        return self.is_takeable
-
     # Code for when the player tries to "get" or "take" an item.
     # Checks to see if the player has the item.
     # Checks to see if the item is inside the room and visible to the player.

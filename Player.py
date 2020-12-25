@@ -13,10 +13,19 @@ class Player:
     def get_inventory(self):
         description = Constants.INVENTORY_START_STRING + "\n"
         for item in self.inventory:
-            description += item.get_name()
-            if item != self.inventory[-1]: # Add a new line unless it is the last item.
+            description += item.name
+            if item != self.inventory[-1]:  # Add a new line unless it is the last item.
                 description += "\n"
         return description
 
     def add_item(self, item):
         self.inventory.append(item)
+
+    # Move to another room. Uses the room's code. Here for potential added features and readability.
+    def move_room(self, direction):
+        current_room = self.location
+        if direction in current_room.exits:
+            self.location = current_room.exits[direction]
+            return current_room.exits[direction].enter_room()
+        else:
+            return Constants.EXIT_NOT_FOUND_STRING

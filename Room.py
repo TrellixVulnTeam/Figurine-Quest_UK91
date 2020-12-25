@@ -18,10 +18,10 @@ class Room:
     def describe_room(self):
         description = self.desc
         for item in self.items:
-            if item.get_is_visible():
+            if item.is_visible:
                 description += " "
                 description += get_item_seen_string(item)
-                description += item.get_name()
+                description += item.name
                 description += "."
         return description
 
@@ -29,15 +29,7 @@ class Room:
     def enter_room(self):
         return self.describe_room()
 
-    # If the direction the player wants to move is valid, move the player and describe the new room.
-    # Otherwise, tell the player they can't do that.
-    def exit_room(self, player, direction):
-        if direction in self.exits:
-            player.location = self.exits[direction]
-            return self.exits[direction].enter_room()
-        else:
-            return Constants.EXIT_NOT_FOUND_STRING
-
+    # Remove an item from the room. Used when a player picks up an item.
     def remove_item(self, item):
         if item in self.items:
             self.items.remove(item)
@@ -45,6 +37,6 @@ class Room:
 
 # Shows the grammatically correct syntax. "You see a ball". "You see an ice-cream".
 def get_item_seen_string(item):
-    if item.get_name()[0] in "aeiou":
+    if item.name[0] in "aeiou":
         return Constants.YOU_SEE_AN_ITEM_STRING
     return Constants.YOU_SEE_A_ITEM_STRING
