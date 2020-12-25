@@ -11,28 +11,30 @@ def parse_input(user_input, player):
     user_input = user_input.lower()
     if not is_command_valid(user_input, Constants.VALID_COMMANDS):
         return Constants.INVALID_COMMAND_GIVEN_STRING
-    if user_input in Constants.UNTARGETABLE_COMMANDS:
-        parse_untargetable_command(user_input, player)
+    user_input = user_input.split()
+    if len(user_input) == 1:
+        return parse_untargetable_command(user_input, player)
     else:
-        parse_targetable_command(user_input, player)
+        return parse_targetable_command(user_input, player)
 
 
 # Handles single-word commands with no target.
 def parse_untargetable_command(user_input, player):
-    if user_input in Constants.DIRECTIONS:
+    command = user_input[0]
+    if command in Constants.DIRECTIONS:
         return Commands.parse_move_command(user_input, player)
-    if user_input in Constants.HELP:
+    if command in Constants.HELP:
         return Commands.parse_help_command()
-    if user_input in Constants.LOOK:
+    if command in Constants.LOOK:
         return Commands.parse_look_command(player)
-    if user_input in Constants.QUIT:
+    if command in Constants.QUIT:
         return Commands.parse_quit_command()
     return Constants.IMPROPERLY_PARSED_COMMAND
 
 
+# TODO: Adjust this to handle items with multiple words.
 # Parse a command with one or more targets, like "examine ball", or "give ball jay".
 def parse_targetable_command(user_input, player):
-    user_input = user_input.split()
     command = user_input[0]
 
     if len(user_input) < 2 or len(user_input) > 3:
