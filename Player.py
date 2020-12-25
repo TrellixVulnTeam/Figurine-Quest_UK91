@@ -1,0 +1,22 @@
+import Constants
+
+
+class Player:
+
+    # Location: Room object the player is currently in.
+    # Inventory: List of Item objects the player currently holds.
+    def __init__(self, location, inventory):
+        self.location = location
+        self.inventory = inventory
+
+    # Prints a list of all items in the player's inventory.
+    def get_inventory(self):
+        description = Constants.INVENTORY_START_STRING + "\n"
+        for item in self.inventory:
+            description += item.get_name()
+            if item != self.inventory[-1]: # Add a new line unless it is the last item.
+                description += "\n"
+        return description
+
+    def add_item(self, item):
+        self.inventory.append(item)

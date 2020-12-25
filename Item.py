@@ -27,6 +27,9 @@ class Item:
     def get_is_visible(self):
         return self.is_visible
 
+    def get_is_takeable(self):
+        return self.is_takeable
+
     # Code for when the player tries to "get" or "take" an item.
     # Checks to see if the player has the item.
     # Checks to see if the item is inside the room and visible to the player.
@@ -34,14 +37,14 @@ class Item:
     # If all conditions are met, removes item from room and adds to player's inventory.
     # Returns a message indicating what did or did not occur.
     def takeItem(self, player):
-        if self in player.getItems():
+        if self in player.inventory:
             return Constants.PLAYER_HAS_ITEM_STRING
-        room = player.getLocation()
-        if self not in room.getItems() or not self.is_visible:
+        room = player.location
+        if self not in room.items or not self.is_visible:
             return Constants.ITEM_NOT_VISIBLE_STRING
         if not self.is_takeable:
             return Constants.ITEM_NOT_TAKEABLE_STRING
 
-        player.addItem(self)
-        room.removeItem(self)
-        return Constants.ITEM_TAKEN_PREFIX_STRING + self.name
+        player.add_item(self)
+        room.remove_item(self)
+        return Constants.ITEM_TAKEN_PREFIX_STRING + self.name + "."
