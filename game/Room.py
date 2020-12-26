@@ -17,7 +17,8 @@ class Room:
 
     # Describe the room plus all visible items in it.
     def describe_room(self):
-        description = self.desc
+        description = self.name + "\n"
+        description += self.desc
         for item in self.items:
             if item.is_visible:
                 description += " "

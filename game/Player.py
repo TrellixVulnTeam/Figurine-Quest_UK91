@@ -21,6 +21,9 @@ class Player:
     def add_item(self, item):
         self.inventory.append(item)
 
+    def remove_item(self, item):
+        self.inventory.remove(item)
+
     # Move to another room. Uses the room's code. Here for potential added features and readability.
     def move_room(self, direction):
         current_room = self.location

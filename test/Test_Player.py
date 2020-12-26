@@ -6,10 +6,20 @@ from test import Objects
 
 class TestPlayer(unittest.TestCase):
 
+    # TODO: Fix state persistence with these tests.
     def test_inventory(self):
         player = copy.copy(Objects.TEST_PLAYER)
-        print(player.get_inventory())
         self.assertEqual("You have: \ntest", player.get_inventory())
+
+    def test_add_item(self):
+        player = copy.copy(Objects.TEST_PLAYER)
+        player.add_item(Objects.TEST_ITEM_ON_GROUND)
+        self.assertEqual("You have: \ntest\ntest 2", player.get_inventory())
+
+    def test_remove_item(self):
+        player = copy.copy(Objects.TEST_PLAYER)
+        player.remove_item(Objects.TEST_ITEM_IN_INVENTORY)
+        self.assertEqual("You have: \n", player.get_inventory())
 
     def test_move_room(self):
         player = copy.copy(Objects.TEST_PLAYER)
