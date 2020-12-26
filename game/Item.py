@@ -22,7 +22,7 @@ class Item:
     # Checks to see if the item can be taken.
     # If all conditions are met, removes item from room and adds to player's inventory.
     # Returns a message indicating what did or did not occur.
-    def takeItem(self, player):
+    def take(self, player):
         room = player.location
         if self not in room.items or not self.is_visible:
             return Constants.ITEM_NOT_VISIBLE_STRING + self.name + '.'
@@ -32,3 +32,11 @@ class Item:
         player.add_item(self)
         room.remove_item(self)
         return Constants.ITEM_TAKEN_STRING + self.name + "."
+
+    def examine(self, player):
+        room = player.location
+        if not self.is_visible:
+            return Constants.ITEM_NOT_VISIBLE_STRING + self.name + '.'
+        if self in room.items or self in player.inventory:
+            return self.long_desc
+        return Constants.ITEM_NOT_VISIBLE_STRING + self.name + '.'

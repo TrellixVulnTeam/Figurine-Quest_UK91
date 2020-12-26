@@ -21,7 +21,7 @@ class TestItem(unittest.TestCase):
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item in room.items)
 
-        actual = item.takeItem(player)
+        actual = item.take(player)
 
         self.assertTrue(item in player.inventory)
         self.assertTrue(item not in room.items)
@@ -36,7 +36,7 @@ class TestItem(unittest.TestCase):
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item not in room.items)
 
-        actual = item.takeItem(player)
+        actual = item.take(player)
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item not in room.items)
         expected = Constants.ITEM_NOT_VISIBLE_STRING + item.name + '.'
@@ -50,7 +50,7 @@ class TestItem(unittest.TestCase):
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item in room.items)
 
-        actual = item.takeItem(player)
+        actual = item.take(player)
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item in room.items)
         expected = Constants.ITEM_NOT_VISIBLE_STRING + item.name + '.'
@@ -64,7 +64,7 @@ class TestItem(unittest.TestCase):
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item in room.items)
 
-        actual = item.takeItem(player)
+        actual = item.take(player)
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item in room.items)
         expected = Constants.ITEM_NOT_TAKEABLE_STRING + item.name + '.'

@@ -11,6 +11,7 @@ ITEM_TAKEN_STRING = "You took the "
 YOU_SEE_AN_ITEM_STRING = "You see an "
 YOU_SEE_A_ITEM_STRING = "You see a "
 ITEM_NOT_IN_INVENTORY_STRING = "You don't have the "
+ITEM_REMOVED_FROM_CONTAINER_STRING = "You remove the "
 
 # Person
 PERSON_VISIBLE_STRING = "You see "

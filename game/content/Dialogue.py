@@ -4,7 +4,7 @@ AZURI_FIRST_TALK_DIALOGUE = "Azuri peeks out from where she was hiding. With a s
 AZURI_SECOND_TALK_DIALOGUE = "Azuri peeks out from under the bed and mews at you."
 
 # Gideon
-GIDEON_TALK_DIALOGUE = "Gideon smiles up at you and says \"Nanna! Giddy found a aminal! Giddy show you! But can Giddy " \
+GIDEON_TALK_DIALOGUE = "Gideon smiles at you and says \"Nanna! Giddy found a aminal! Giddy show you! But can Giddy " \
                   "have lokalet first?\" He's far too cute for you to say no. You'd best find that for him."
 GIDEON_QUEST_COMPLETE_DIALOGUE = "Gideon grins from ear to ear and stuffs the chocolate into his mouth. He rummages" \
                                  "under the lounge cushions and comes up with a dog figurine, which he places on the" \

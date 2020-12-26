@@ -3,19 +3,19 @@ from game import Item
 # Quest items
 DOG_FIGURINE = Item.Item("dog figurine", ["dog", "figurine", "figure"], "This is a dog figurine.",
                          "This is a small garden ornament in the shape of a dog. Nan's probably "
-                         "looking for this.", False, False) # Gideon has this.
+                         "looking for this.", False, False)  # Gideon has this.
 PIG_FIGURINE = Item.Item("pig figurine", ["pig", "figurine", "figure"], "This is a pig figurine.",
                          "This is a small garden ornament in the shape of a pig. Nan's probably "
-                         "looking for this.", False, False) # Azuri has this.
+                         "looking for this.", False, False)  # Azuri has this.
 CAT_FIGURINE = Item.Item("cat figurine", ["cat", "figurine", "figure"], "This is a cat figurine.",
                          "This is a small garden ornament in the shape of a cat. Nan's probably "
-                         "looking for this.", True, True) #  TODO: Find place for this.
+                         "looking for this.", True, True)  # TODO: Find place for this.
 MOUSE_FIGURINE = Item.Item("mouse figurine", ["mouse", "figurine", "figure"], "This is a mouse figurine.",
                            "This is a small garden ornament in the shape of a mouse. Nan's probably "
-                           "looking for this.", True, True) # TODO: Find place for this.
+                           "looking for this.", True, True)  # TODO: Find place for this.
 BEAR_FIGURINE = Item.Item("bear figurine", ["bear", "figurine", "figure"], "This is a bear figurine.",
                           "This is a small garden ornament in the shape of a bear. Nan's probably "
-                          "looking for this.", True, True) # Molly has this in the shed.
+                          "looking for this.", True, True)  # Molly has this in the shed.
 
 # Quest-associated items
 CAT_TOY = Item.Item("cat toy", ["cat", "toy"], "This is a cat toy.",

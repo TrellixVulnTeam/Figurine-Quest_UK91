@@ -37,10 +37,10 @@ def parse_examine_command(user_input, player):
     target = joinList(user_input[1:])
     for item in player.location.items:
         if target == item.name.lower() or target in item.keywords:
-            return item.long_desc
+            return item.examine(player)
     for item in player.inventory:
         if target == item.name.lower():
-            return item.long_desc
+            return item.examine(player)
     return Constants.ITEM_NOT_VISIBLE_STRING + target + '.'
 
 
@@ -49,7 +49,7 @@ def parse_take_command(user_input, player):
     target = joinList(user_input[1:])
     for item in player.location.items:
         if target == item.name.lower() or target in item.keywords:
-            return item.takeItem(player)
+            return item.take(player)
     return Constants.ITEM_NOT_VISIBLE_STRING + target + '.'
 
 
