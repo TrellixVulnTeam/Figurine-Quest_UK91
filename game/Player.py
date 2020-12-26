@@ -12,6 +12,9 @@ class Player:
     # Prints a list of all items in the player's inventory.
     def get_inventory(self):
         description = Constants.INVENTORY_START_STRING + "\n"
+        if len(self.inventory) == 0:
+            description += Constants.EMPTY_INVENTORY_STRING
+            return description
         for item in self.inventory:
             description += item.name
             if item != self.inventory[-1]:  # Add a new line unless it is the last item.

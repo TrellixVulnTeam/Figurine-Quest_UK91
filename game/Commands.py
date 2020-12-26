@@ -30,6 +30,10 @@ def parse_look_command(player):
     return player.location.desc
 
 
+def parse_inventory_command(player):
+    return player.get_inventory()
+
+
 # Single target commands
 
 # Returns long description of an item if it is present in the room or player's inventory.

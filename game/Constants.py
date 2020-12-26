@@ -1,11 +1,15 @@
 # Start
 WELCOME_MESSAGE = "Welcome to Figurine Quest! \n" \
+                   "You'll be playing as Melody in this game, doing a task for your mother, once you find her. \n" \
                    "This is a text game. To interact with the game, type a command below. \n" \
                    "If you are unsure what commands are available, type 'help'. \n" \
                    "Good luck!"
 
 # Quit
 YES = ["y", "yes"]
+
+# Victory
+YOU_WIN_MESSAGE = "Congratulations. You win! You collected all five figurines. Hope you enjoyed playing!"
 
 # Item
 ITEM_NOT_VISIBLE_STRING = "You don't see the "
@@ -15,6 +19,7 @@ YOU_SEE_AN_ITEM_STRING = "You see an "
 YOU_SEE_A_ITEM_STRING = "You see a "
 ITEM_NOT_IN_INVENTORY_STRING = "You don't have the "
 ITEM_REMOVED_FROM_CONTAINER_STRING = "You remove the "
+EMPTY_INVENTORY_STRING = "Nothing."
 
 # Person
 PERSON_VISIBLE_STRING = "You see "

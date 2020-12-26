@@ -27,6 +27,8 @@ def parse_untargetable_command(user_input, player):
         return Commands.parse_look_command(player)
     if command in Constants.QUIT:
         return Commands.parse_quit_command()
+    if command in Constants.INVENTORY:
+        return Commands.parse_inventory_command(player)
     return Constants.IMPROPERLY_PARSED_COMMAND
 
 

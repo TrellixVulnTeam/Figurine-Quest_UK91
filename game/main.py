@@ -17,4 +17,8 @@ def game_loop():
         print('\n')
 
 
+def victory():
+    print(Constants.YOU_WIN_MESSAGE)
+    exit()
+
 game_loop()

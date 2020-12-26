@@ -13,6 +13,7 @@ class Nan(Person.Person):
     def talk(self, player):
         if self in player.location.people and self.is_visible:
             if not self.spoken_to:
+                self.spoken_to = True
                 return Dialogue.NAN_INITIAL_TALK_DIALOGUE
             if self.figurines_found < 5:
                 # Tells the user how many figurines they've given Nan and how many are still needed.

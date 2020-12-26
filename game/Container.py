@@ -25,10 +25,11 @@ class Container(Item.Item):
         if len(self.contains) > 0:
             description += '. '
 
-        # TODO: Add code for invisible items?
+        # TODO: Add code for invisible/untakeable items?
         for item in self.contains:
             description += Constants.ITEM_REMOVED_FROM_CONTAINER_STRING + item.name + '.'
             item.is_visible = True
+            item.is_takeable = True
             self.contains.remove(item)
             room.items.append(item)
         return description
