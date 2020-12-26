@@ -1,28 +1,27 @@
 import unittest
 import copy
-from game import Constants
+from game import Player
 from test import Objects
 
 
 class TestPlayer(unittest.TestCase):
 
-    # TODO: Fix state persistence with these tests.
     def test_inventory(self):
-        player = copy.copy(Objects.TEST_PLAYER)
+        player = Player.Player(Objects.TEST_ROOM, [Objects.TEST_ITEM_IN_INVENTORY])
         self.assertEqual("You have: \ntest", player.get_inventory())
 
     def test_add_item(self):
-        player = copy.copy(Objects.TEST_PLAYER)
+        player = Player.Player(Objects.TEST_ROOM, [Objects.TEST_ITEM_IN_INVENTORY])
         player.add_item(Objects.TEST_ITEM_ON_GROUND)
         self.assertEqual("You have: \ntest\ntest 2", player.get_inventory())
 
     def test_remove_item(self):
-        player = copy.copy(Objects.TEST_PLAYER)
+        player = Player.Player(Objects.TEST_ROOM, [Objects.TEST_ITEM_IN_INVENTORY])
         player.remove_item(Objects.TEST_ITEM_IN_INVENTORY)
         self.assertEqual("You have: \n", player.get_inventory())
 
     def test_move_room(self):
-        player = copy.copy(Objects.TEST_PLAYER)
+        player = Player.Player(Objects.TEST_ROOM, [Objects.TEST_ITEM_IN_INVENTORY])
         room = copy.copy(Objects.TEST_ROOM)
         room_two = copy.copy(Objects.TEST_ROOM_2)
 
@@ -32,7 +31,7 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(room_two.describe_room(), string)
 
     def test_move_room_with_invalid_move(self):
-        player = copy.copy(Objects.TEST_PLAYER)
+        player = Player.Player(Objects.TEST_ROOM, [Objects.TEST_ITEM_IN_INVENTORY])
         room = copy.copy(Objects.TEST_ROOM)
 
         self.assertEqual(player.location.desc, room.desc)

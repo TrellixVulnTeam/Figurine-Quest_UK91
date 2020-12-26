@@ -36,7 +36,7 @@ def parse_look_command(player):
 def parse_examine_command(user_input, player):
     target = joinList(user_input[1:])
     for item in player.location.items:
-        if target == item.name.lower():
+        if target == item.name.lower() or target in item.keywords:
             return item.long_desc
     for item in player.inventory:
         if target == item.name.lower():
@@ -48,7 +48,7 @@ def parse_examine_command(user_input, player):
 def parse_take_command(user_input, player):
     target = joinList(user_input[1:])
     for item in player.location.items:
-        if target == item.name.lower():
+        if target == item.name.lower() or target in item.keywords:
             return item.takeItem(player)
     return Constants.ITEM_NOT_VISIBLE_STRING + target + '.'
 
@@ -72,7 +72,7 @@ def parse_give_command(user_input, player):
 
     # TODO: Dehack this?
     for inv_item in player.inventory:
-        if inv_item.name == item_name:
+        if inv_item.name == item_name or item_name in inv_item.keywords:
             item = inv_item
 
     if item is None:

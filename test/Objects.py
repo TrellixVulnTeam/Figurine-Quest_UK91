@@ -4,11 +4,11 @@ from game.people import Gideon
 # Test Objects
 
 # Items
-TEST_ITEM_IN_INVENTORY = Item.Item("test", "Short desc", "Long desc", True, True)
-TEST_ITEM_ON_GROUND = Item.Item("test 2", "Short desc 2", "Long desc 2", True, True)
-TEST_ITEM_NOT_PRESENT = Item.Item("test not present", "Short desc not present", "Long desc not present", True, True)
-TEST_ITEM_NO_GET = Item.Item("test ungettable", "Short desc ungettable", "Long desc ungettable", True, False)
-TEST_ITEM_NO_VIS = Item.Item("test invisible", "Short desc invisible", "Long desc invisible", False, True)
+TEST_ITEM_IN_INVENTORY = Item.Item("test", ["keyword"], "Short desc", "Long desc", True, True)
+TEST_ITEM_ON_GROUND = Item.Item("test 2", ["keyword"], "Short desc 2", "Long desc 2", True, True)
+TEST_ITEM_NOT_PRESENT = Item.Item("test not present", ["keyword"], "Short desc not present", "Long desc not present", True, True)
+TEST_ITEM_NO_GET = Item.Item("test ungettable", ["keyword"], "Short desc ungettable", "Long desc ungettable", True, False)
+TEST_ITEM_NO_VIS = Item.Item("test invisible", ["keyword"], "Short desc invisible", "Long desc invisible", False, True)
 
 # People
 TEST_PERSON = Person.Person("Testman", "You see a test man", True)

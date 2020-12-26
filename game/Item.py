@@ -8,8 +8,9 @@ class Item:
     # is_visible - Determines if the item can currently be seen.
     # is_takeable - Determines if the player can currently "take" the item.
 
-    def __init__(self, name, short_desc, long_desc, is_visible, is_takeable):
+    def __init__(self, name, keywords, short_desc, long_desc, is_visible, is_takeable):
         self.name = name
+        self.keywords = keywords
         self.short_desc = short_desc
         self.long_desc = long_desc
         self.is_visible = is_visible
