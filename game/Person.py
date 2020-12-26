@@ -18,3 +18,10 @@ class Person:
         if self in player.location.people and self.is_visible:
             return Constants.BASE_DIALOGUE
         return Constants.PERSON_NOT_VISIBLE_STRING + self.name.lower() + "."
+
+    def give(self, item, player):
+        if item not in player.inventory:
+            return Constants.ITEM_NOT_IN_INVENTORY_STRING + item.name + "."
+        if self in player.location.people and self.is_visible:
+            return Constants.INCORRECT_GIFT
+        return Constants.PERSON_NOT_VISIBLE_STRING + self.name.lower() + "."

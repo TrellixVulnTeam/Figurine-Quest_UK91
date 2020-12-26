@@ -103,3 +103,31 @@ class TestCommandParser(unittest.TestCase):
         actual = CommandParser.parse_input(user_input, player)
         expected = Constants.PERSON_NOT_VISIBLE_STRING + 'testman.'
         self.assertEqual(expected, actual)
+
+    def test_give_command_valid_item(self):
+        user_input = "give testman test"
+        player = copy.copy(Objects.TEST_PLAYER_IN_PERSON_ROOM)
+        actual = CommandParser.parse_input(user_input, player)
+        expected = Constants.INCORRECT_GIFT
+        self.assertEqual(expected, actual)
+
+    def test_give_command_invisible_target(self):
+        user_input = "give testman test"
+        player = copy.copy(Objects.TEST_PLAYER_IN_INVISIBLE_PERSON_ROOM)
+        actual = CommandParser.parse_input(user_input, player)
+        expected = Constants.PERSON_NOT_VISIBLE_STRING + "testman."
+        self.assertEqual(expected, actual)
+
+    def test_give_command_target_not_present(self):
+        user_input = "give testman test"
+        player = copy.copy(Objects.TEST_PLAYER)
+        actual = CommandParser.parse_input(user_input, player)
+        expected = Constants.PERSON_NOT_VISIBLE_STRING + "testman."
+        self.assertEqual(expected, actual)
+
+    def test_give_command_item_not_in_inventory(self):
+        user_input = "give testman test not present"
+        player = copy.copy(Objects.TEST_PLAYER_IN_PERSON_ROOM)
+        actual = CommandParser.parse_input(user_input, player)
+        expected = Constants.ITEM_NOT_IN_INVENTORY_STRING + "test not present."
+        self.assertEqual(expected, actual)

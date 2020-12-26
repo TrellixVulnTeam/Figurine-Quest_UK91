@@ -10,11 +10,13 @@ ITEM_NOT_TAKEABLE_STRING = "You can't reach the "
 ITEM_TAKEN_STRING = "You took the "
 YOU_SEE_AN_ITEM_STRING = "You see an "
 YOU_SEE_A_ITEM_STRING = "You see a "
+ITEM_NOT_IN_INVENTORY_STRING = "You don't have the "
 
 # Person
 PERSON_VISIBLE_STRING = "You see "
 PERSON_NOT_VISIBLE_STRING = "You don't see "
 BASE_DIALOGUE = "They don't feel like talking right now."
+INCORRECT_GIFT = "They don't want that item."
 
 # Room
 EXIT_NOT_FOUND_STRING = "You can't go that way."

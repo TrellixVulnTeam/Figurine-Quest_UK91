@@ -99,3 +99,30 @@ class TestCommands(unittest.TestCase):
         player = copy.copy(Objects.TEST_PLAYER)
         actual = Commands.parse_talk_command(user_input, player)
         self.assertTrue(Constants.PERSON_NOT_VISIBLE_STRING, actual)
+
+    def test_give_command_valid_command(self):
+        user_input = ["give", "testman", "test"]
+        player = copy.copy(Objects.TEST_PLAYER_IN_PERSON_ROOM)
+        actual = Commands.parse_give_command(user_input, player)
+        self.assertTrue(Constants.INCORRECT_GIFT, actual)
+
+    def test_give_command_person_invisible(self):
+        user_input = ["give", "testman", "test"]
+        player = copy.copy(Objects.TEST_PLAYER_IN_INVISIBLE_PERSON_ROOM)
+        actual = Commands.parse_give_command(user_input, player)
+        expected = Constants.PERSON_NOT_VISIBLE_STRING + "testman."
+        self.assertTrue(expected, actual)
+
+    def test_give_command_person_not_present(self):
+        user_input = ["give", "testman", "test"]
+        player = copy.copy(Objects.TEST_PLAYER)
+        actual = Commands.parse_give_command(user_input, player)
+        expected = Constants.PERSON_NOT_VISIBLE_STRING + "testman."
+        self.assertTrue(expected, actual)
+
+    def test_give_command_item_not_in_inventory(self):
+        user_input = ["give", "testman", "test not present"]
+        player = copy.copy(Objects.TEST_PLAYER_IN_INVISIBLE_PERSON_ROOM)
+        actual = Commands.parse_give_command(user_input, player)
+        expected = Constants.ITEM_NOT_IN_INVENTORY_STRING + "test not present."
+        self.assertTrue(expected, actual)
