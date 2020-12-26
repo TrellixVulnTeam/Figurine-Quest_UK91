@@ -20,11 +20,12 @@ class TestItem(unittest.TestCase):
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item in room.items)
 
-        string = item.takeItem(player)
+        actual = item.takeItem(player)
 
         self.assertTrue(item in player.inventory)
         self.assertTrue(item not in room.items)
-        self.assertEqual("You took the test 2.", string)
+        expected = Constants.ITEM_TAKEN_STRING + item.name + '.'
+        self.assertEqual(expected, actual)
 
     def test_take_item_not_present(self):
         room = Constants.TEST_ROOM
@@ -34,10 +35,11 @@ class TestItem(unittest.TestCase):
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item not in room.items)
 
-        string = item.takeItem(player)
+        actual = item.takeItem(player)
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item not in room.items)
-        self.assertEqual("You don't see that here.", string)
+        expected = Constants.ITEM_NOT_VISIBLE_STRING + item.name + '.'
+        self.assertEqual(expected, actual)
 
     def test_take_invisible_item(self):
         room = Constants.TEST_ROOM_2
@@ -47,10 +49,11 @@ class TestItem(unittest.TestCase):
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item in room.items)
 
-        string = item.takeItem(player)
+        actual = item.takeItem(player)
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item in room.items)
-        self.assertEqual("You don't see that here.", string)
+        expected = Constants.ITEM_NOT_VISIBLE_STRING + item.name + '.'
+        self.assertEqual(expected, actual)
 
     def test_take_untakeable_item(self):
         room = Constants.TEST_ROOM_2
@@ -60,7 +63,8 @@ class TestItem(unittest.TestCase):
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item in room.items)
 
-        string = item.takeItem(player)
+        actual = item.takeItem(player)
         self.assertTrue(item not in player.inventory)
         self.assertTrue(item in room.items)
-        self.assertEqual("You can't reach that yet.", string)
+        expected = Constants.ITEM_NOT_TAKEABLE_STRING + item.name + '.'
+        self.assertEqual(expected, actual)

@@ -22,14 +22,12 @@ class Item:
     # If all conditions are met, removes item from room and adds to player's inventory.
     # Returns a message indicating what did or did not occur.
     def takeItem(self, player):
-        if self in player.inventory:
-            return Constants.PLAYER_HAS_ITEM_STRING
         room = player.location
         if self not in room.items or not self.is_visible:
-            return Constants.ITEM_NOT_VISIBLE_STRING
+            return Constants.ITEM_NOT_VISIBLE_STRING + self.name + '.'
         if not self.is_takeable:
-            return Constants.ITEM_NOT_TAKEABLE_STRING
+            return Constants.ITEM_NOT_TAKEABLE_STRING + self.name + '.'
 
         player.add_item(self)
         room.remove_item(self)
-        return Constants.ITEM_TAKEN_PREFIX_STRING + self.name + "."
+        return Constants.ITEM_TAKEN_STRING + self.name + "."

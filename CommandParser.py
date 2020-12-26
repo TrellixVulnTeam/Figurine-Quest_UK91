@@ -8,10 +8,9 @@ def get_input():
 
 
 def parse_input(user_input, player):
-    user_input = user_input.lower()
-    if not is_command_valid(user_input, Constants.VALID_COMMANDS):
+    user_input = user_input.lower().split()
+    if not is_command_valid(user_input[0], Constants.VALID_COMMANDS):
         return Constants.INVALID_COMMAND_GIVEN_STRING
-    user_input = user_input.split()
     if len(user_input) == 1:
         return parse_untargetable_command(user_input, player)
     else:
@@ -32,22 +31,20 @@ def parse_untargetable_command(user_input, player):
     return Constants.IMPROPERLY_PARSED_COMMAND
 
 
-# TODO: Adjust this to handle items with multiple words.
 # Parse a command with one or more targets, like "examine ball", or "give ball jay".
 def parse_targetable_command(user_input, player):
     command = user_input[0]
 
-    if len(user_input) < 2 or len(user_input) > 3:
+    if len(user_input) < 2:
         return Constants.IMPROPERLY_PARSED_COMMAND
 
-    if len(user_input) == 2:
-        if is_command_valid(command, Constants.SINGLE_TARGET_COMMANDS):
-            return parse_single_target_command(user_input, player)
-    if len(user_input) == 3:
-        if is_command_valid(command, Constants.DOUBLE_TARGET_COMMANDS):
-            return parse_double_target_command(user_input, player)
-    return Constants.IMPROPERLY_PARSED_COMMAND
+    if is_command_valid(command, Constants.SINGLE_TARGET_COMMANDS):
+        return parse_single_target_command(user_input, player)
 
+    if is_command_valid(command, Constants.DOUBLE_TARGET_COMMANDS):
+        return parse_double_target_command(user_input, player)
+
+    return Constants.IMPROPERLY_PARSED_COMMAND
 
 
 def parse_single_target_command(user_input, player):
@@ -70,8 +67,13 @@ def parse_double_target_command(user_input, player):
 
 # Searches all valid commands. Returns True if the user command is in there, otherwise returns False.
 def is_command_valid(user_input, allowable_commands):
-    for command_list in allowable_commands:
-        for command in command_list:
-            if user_input == command:
-                return True
+    # Flatten the list of allowable commands, since many allowable commands are a list of synonyms. ['get', 'take']
+    flat_allowable_commands = []
+    for sublist in allowable_commands:
+        for item in sublist:
+            flat_allowable_commands.append(item)
+
+    for command in flat_allowable_commands:
+        if user_input == command:
+            return True
     return False

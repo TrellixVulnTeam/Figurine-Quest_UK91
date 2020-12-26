@@ -53,8 +53,9 @@ class MyTestCase(unittest.TestCase):
     def test_examine_command_item_not_found(self):
         user_input = ["examine", "test not present"]
         player = copy.copy(Constants.TEST_PLAYER)
+        expected = Constants.ITEM_NOT_VISIBLE_STRING + "test not present."
         actual = Commands.parse_examine_command(user_input, player)
-        self.assertEqual(Constants.ITEM_NOT_VISIBLE_STRING, actual)
+        self.assertEqual(expected, actual)
 
     def test_take_command_item_in_room(self):
         user_input = ["take", "test 2"]
