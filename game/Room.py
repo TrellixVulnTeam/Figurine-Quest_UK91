@@ -1,4 +1,4 @@
-import Constants
+from game import Constants
 
 
 class Room:
@@ -8,11 +8,12 @@ class Room:
     # Exits: Dictionary of {direction: Room} indicating valid exits to this room.
     # Items: List of Item objects indicating items present in this room.
 
-    def __init__(self, name, desc, exits, items):
+    def __init__(self, name, desc, exits, items, people):
         self.name = name
         self.desc = desc
         self.exits = exits
         self.items = items
+        self.people = people
 
     # Describe the room plus all visible items in it.
     def describe_room(self):
@@ -22,6 +23,12 @@ class Room:
                 description += " "
                 description += get_item_seen_string(item)
                 description += item.name
+                description += "."
+        for person in self.people:
+            if person.is_visible:
+                description += " "
+                description += Constants.PERSON_VISIBLE_STRING
+                description += person.name
                 description += "."
         return description
 

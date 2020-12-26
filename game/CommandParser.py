@@ -1,5 +1,4 @@
-import Commands
-import Constants
+from game import Commands, Constants
 
 
 # Contains functions for parsing user commands into actions.

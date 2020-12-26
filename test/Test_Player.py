@@ -1,19 +1,20 @@
 import unittest
 import copy
-import Constants
+from game import Constants
+from test import Objects
 
 
 class TestPlayer(unittest.TestCase):
 
     def test_inventory(self):
-        player = copy.copy(Constants.TEST_PLAYER)
+        player = copy.copy(Objects.TEST_PLAYER)
         print(player.get_inventory())
         self.assertEqual("You have: \ntest", player.get_inventory())
 
     def test_move_room(self):
-        player = copy.copy(Constants.TEST_PLAYER)
-        room = copy.copy(Constants.TEST_ROOM)
-        room_two = copy.copy(Constants.TEST_ROOM_2)
+        player = copy.copy(Objects.TEST_PLAYER)
+        room = copy.copy(Objects.TEST_ROOM)
+        room_two = copy.copy(Objects.TEST_ROOM_2)
 
         self.assertEqual(room.desc, player.location.desc)
         string = player.move_room("n")
@@ -21,8 +22,8 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(room_two.describe_room(), string)
 
     def test_move_room_with_invalid_move(self):
-        player = copy.copy(Constants.TEST_PLAYER)
-        room = copy.copy(Constants.TEST_ROOM)
+        player = copy.copy(Objects.TEST_PLAYER)
+        room = copy.copy(Objects.TEST_ROOM)
 
         self.assertEqual(player.location.desc, room.desc)
         string = player.move_room("w")

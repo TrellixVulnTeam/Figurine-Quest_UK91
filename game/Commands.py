@@ -1,4 +1,4 @@
-import Constants
+from game import Constants
 
 
 # Completes commands after the parser has determined which function to call.
