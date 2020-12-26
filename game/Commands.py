@@ -38,10 +38,10 @@ def parse_examine_command(user_input, player):
     separator = ' '
     target = separator.join(target)
     for item in player.location.items:
-        if target == item.name:
+        if target == item.name.lower():
             return item.long_desc
     for item in player.inventory:
-        if target == item.name:
+        if target == item.name.lower():
             return item.long_desc
     return Constants.ITEM_NOT_VISIBLE_STRING + target + '.'
 
@@ -52,13 +52,19 @@ def parse_take_command(user_input, player):
     separator = ' '
     target = separator.join(target)
     for item in player.location.items:
-        if target == item.name:
+        if target == item.name.lower():
             return item.takeItem(player)
     return Constants.ITEM_NOT_VISIBLE_STRING + target + '.'
 
 
 def parse_talk_command(user_input, player):
-    return "To be implemented when NPC's are implemented."
+    target = user_input[1:]
+    separator = ' '
+    target = separator.join(target)
+    for person in player.location.people:
+        if target == person.name.lower():
+            return person.talk(player)
+    return Constants.PERSON_NOT_VISIBLE_STRING + target + '.'
 
 
 # Double target commands

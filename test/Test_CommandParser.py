@@ -82,3 +82,24 @@ class TestCommandParser(unittest.TestCase):
         actual = CommandParser.parse_input(user_input, player)
         expected = Constants.ITEM_NOT_TAKEABLE_STRING + Objects.TEST_ITEM_NO_GET.name + '.'
         self.assertEqual(expected, actual)
+
+    def test_talk_command_person_present(self):
+        user_input = "talk testman"
+        player = copy.copy(Objects.TEST_PLAYER_IN_PERSON_ROOM)
+        actual = CommandParser.parse_input(user_input, player)
+        expected = Constants.BASE_DIALOGUE
+        self.assertEqual(expected, actual)
+
+    def test_talk_command_person_invisible(self):
+        user_input = "talk testman"
+        player = copy.copy(Objects.TEST_PLAYER_IN_INVISIBLE_PERSON_ROOM)
+        actual = CommandParser.parse_input(user_input, player)
+        expected = Constants.PERSON_NOT_VISIBLE_STRING + 'testman.'
+        self.assertEqual(expected, actual)
+
+    def test_talk_command_person_not_present(self):
+        user_input = "talk testman"
+        player = copy.copy(Objects.TEST_PLAYER)
+        actual = CommandParser.parse_input(user_input, player)
+        expected = Constants.PERSON_NOT_VISIBLE_STRING + 'testman.'
+        self.assertEqual(expected, actual)

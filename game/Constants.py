@@ -14,7 +14,7 @@ YOU_SEE_A_ITEM_STRING = "You see a "
 # Person
 PERSON_VISIBLE_STRING = "You see "
 PERSON_NOT_VISIBLE_STRING = "You don't see "
-TEST_DIALOGUE = "Test dialogue"
+BASE_DIALOGUE = "They don't feel like talking right now."
 
 # Room
 EXIT_NOT_FOUND_STRING = "You can't go that way."

@@ -4,7 +4,7 @@ from game import Commands, Constants, Item, Player, Room
 from test import Objects
 
 
-class MyTestCase(unittest.TestCase):
+class TestCommands(unittest.TestCase):
     def test_move_command_valid_move(self):
         user_input = "north"
         player = copy.copy(Objects.TEST_PLAYER)
@@ -81,3 +81,21 @@ class MyTestCase(unittest.TestCase):
         self.assertTrue(item not in room.items)
         self.assertTrue(item not in player.inventory)
         self.assertTrue(Constants.ITEM_NOT_VISIBLE_STRING, actual)
+
+    def test_talk_command_person_present(self):
+        user_input = ["talk", "testman"]
+        player = copy.copy(Objects.TEST_PLAYER_IN_PERSON_ROOM)
+        actual = Commands.parse_talk_command(user_input, player)
+        self.assertTrue(Constants.BASE_DIALOGUE, actual)
+
+    def test_talk_command_person_invisible(self):
+        user_input = ["talk", "testman"]
+        player = copy.copy(Objects.TEST_PLAYER_IN_INVISIBLE_PERSON_ROOM)
+        actual = Commands.parse_talk_command(user_input, player)
+        self.assertTrue(Constants.BASE_DIALOGUE, actual)
+
+    def test_talk_command_person_not_present(self):
+        user_input = ["talk", "testman"]
+        player = copy.copy(Objects.TEST_PLAYER)
+        actual = Commands.parse_talk_command(user_input, player)
+        self.assertTrue(Constants.PERSON_NOT_VISIBLE_STRING, actual)

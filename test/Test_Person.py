@@ -16,3 +16,9 @@ class TestPerson(unittest.TestCase):
         actual = person.examine(player)
         self.assertEqual(Constants.PERSON_NOT_VISIBLE_STRING, actual)
 
+    def test_person_not_present(self):
+        person = Objects.TEST_PERSON
+        player = Objects.TEST_PLAYER
+        actual = person.examine(player)
+        self.assertEqual(Constants.PERSON_NOT_VISIBLE_STRING, actual)
+
