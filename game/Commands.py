@@ -7,7 +7,7 @@ from game import Constants
 
 # Move the player in a direction if valid.
 def parse_move_command(user_input, player):
-    return player.move_room(user_input[0])
+    return player.move_room(user_input[0][0])
 
 
 # Display the help text on the screen.

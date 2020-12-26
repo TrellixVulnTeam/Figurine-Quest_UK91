@@ -4,6 +4,7 @@ from game.content import Dialogue, Items
 
 # Nan is an older lady in her 60's. She gives the main quest for the game, finding her five figurines.
 class Nan(Person.Person):
+
     figurines_found = 0
     spoken_to = False
     figurines_wanted = [Items.DOG_FIGURINE, Items.CAT_FIGURINE, Items.MOUSE_FIGURINE, Items.BEAR_FIGURINE,

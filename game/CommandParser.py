@@ -19,7 +19,7 @@ def parse_input(user_input, player):
 # Handles single-word commands with no target.
 def parse_untargetable_command(user_input, player):
     command = user_input[0]
-    if command in Constants.DIRECTIONS:
+    if command in Constants.DIRECTIONS[0]:
         return Commands.parse_move_command(user_input, player)
     if command in Constants.HELP:
         return Commands.parse_help_command()

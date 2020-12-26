@@ -1,5 +1,8 @@
-from game import Item, Player, Person, Room
-from game.people import Gideon
+# Start
+WELCOME_MESSAGE = "Welcome to Figurine Quest! \n" \
+                   "This is a text game. To interact with the game, type a command below. \n" \
+                   "If you are unsure what commands are available, type 'help'. \n" \
+                   "Good luck!"
 
 # Quit
 YES = ["y", "yes"]
@@ -46,7 +49,7 @@ INVALID_COMMAND_GIVEN_STRING = "That is not a valid command. For a list of comma
 IMPROPERLY_PARSED_COMMAND = "This command was passed to a place in the program it shouldn't go. " \
                             "Please tell Jay about it."
 
-PLAYER_HELP = "This is a text game. To do things, read the description of the place you" \
+PLAYER_HELP = "This is a text game. To do things, read the description of the place you " \
               "are in, decide on your move, and type a command into the window. Here are your available commands: \n" \
               "n, e, s, w: Go North, East, South, or West. Read the room description to see available exits. \n" \
               "help: Read this help section again. \n" \
