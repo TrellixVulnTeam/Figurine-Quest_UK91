@@ -31,6 +31,8 @@ def parse_untargetable_command(user_input, player):
         return Commands.parse_quit_command()
     if command in Constants.INVENTORY:
         return Commands.parse_inventory_command(player)
+    if is_command_valid(user_input, Constants.SINGLE_TARGET_COMMANDS + Constants.DOUBLE_TARGET_COMMANDS):
+        return Constants.IMPROPERLY_TARGETED_COMMAND
     return Constants.IMPROPERLY_PARSED_COMMAND
 
 
@@ -77,6 +79,6 @@ def is_command_valid(user_input, allowable_commands):
             flat_allowable_commands.append(item)
 
     for command in flat_allowable_commands:
-        if user_input == command:
+        if user_input == command or user_input[0] == command:  # TODO: Fix hack
             return True
     return False

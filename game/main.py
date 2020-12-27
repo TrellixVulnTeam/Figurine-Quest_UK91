@@ -14,6 +14,6 @@ def game_loop():
         print('Enter command:')
         user_input = input()
         print(CommandParser.parse_input(user_input, player))
-        print('\n')
+
 
 game_loop()

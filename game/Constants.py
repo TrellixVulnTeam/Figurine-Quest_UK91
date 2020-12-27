@@ -54,8 +54,9 @@ VALID_COMMANDS = DIRECTIONS + UNTARGETABLE_COMMANDS + SINGLE_TARGET_COMMANDS + D
 INVALID_COMMAND_GIVEN_STRING = "That is not a valid command. For a list of commands, type \'help\'"
 IMPROPERLY_PARSED_COMMAND = "This command was passed to a place in the program it shouldn't go. " \
                             "Please tell Jay about it."
+IMPROPERLY_TARGETED_COMMAND = "You need a target for this command. Try 'help' if you are unsure."
 
-PLAYER_HELP = "This is a text game. To do things, read the description of the place you " \
+PLAYER_HELP = "This is a text game. To do things, read the description of the place you \n" \
               "are in, decide on your move, and type a command into the window. Here are your available commands: \n" \
               "n, e, s, w: Go North, East, South, or West. Read the room description to see available exits. \n" \
               "help: Read this help section again. \n" \
@@ -64,4 +65,4 @@ PLAYER_HELP = "This is a text game. To do things, read the description of the pl
               "get <object>: Get an object. The object must be in the room and accessible to you. \n" \
               "talk <person>: Talk to a person. The person must be in the room. \n" \
               "give <object> <person>: Give someone an item. To give Jay the ball, you would type \"give ball jay\"" \
-              "\n\n Good luck! If you run into trouble, remember to read carefully and 'examine' things closely!"
+              "\n\nGood luck! If you run into trouble, remember to read carefully and 'examine' things closely!"
