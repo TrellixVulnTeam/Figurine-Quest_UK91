@@ -1,4 +1,4 @@
-from game.content import Rooms
+from game.content import Rooms, Dialogue
 from game import Player, CommandParser, Constants
 
 
@@ -15,10 +15,5 @@ def game_loop():
         user_input = input()
         print(CommandParser.parse_input(user_input, player))
         print('\n')
-
-
-def victory():
-    print(Constants.YOU_WIN_MESSAGE)
-    exit()
 
 game_loop()

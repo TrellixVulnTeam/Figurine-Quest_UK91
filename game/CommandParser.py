@@ -8,6 +8,8 @@ def get_input():
 
 def parse_input(user_input, player):
     user_input = user_input.lower().split()
+    if len(user_input) == 0:
+        return Constants.INVALID_COMMAND_GIVEN_STRING
     if not is_command_valid(user_input[0], Constants.VALID_COMMANDS):
         return Constants.INVALID_COMMAND_GIVEN_STRING
     if len(user_input) == 1:

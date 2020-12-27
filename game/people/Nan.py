@@ -31,9 +31,12 @@ class Nan(Person.Person):
                 self.figurines_wanted.remove(item)
                 self.figurines_found += 1
                 if len(self.figurines_wanted) == 0:
-                    return Dialogue.NAN_VICTORY_DIALOGUE
-                    # TODO: Add victory code here.
-                return Dialogue.NAN_SUBSEQUENT_DIALOGUE_1 + str(self.figurines_found) + \
+                    # You win the game!
+                    print(Dialogue.NAN_VICTORY_DIALOGUE)
+                    print(Constants.YOU_WIN_MESSAGE)
+                    exit()
+                return Constants.ITEM_GIVEN_STRING + item.name + "to " + self.name + '. ' + \
+                       Dialogue.NAN_SUBSEQUENT_DIALOGUE_1 + str(self.figurines_found) + \
                        Dialogue.NAN_SUBSEQUENT_DIALOGUE_2 + str(len(self.figurines_wanted)) + \
                        Dialogue.NAN_SUBSEQUENT_DIALOGUE_3
             return Constants.INCORRECT_GIFT

@@ -16,6 +16,7 @@ class Gideon(Person.Person):
 
     def give(self, item, player):
         if item is Items.CHOCOLATE:
+            player.inventory.remove(Items.CHOCOLATE)
             Items.DOG_FIGURINE.is_visible = True
             Items.DOG_FIGURINE.is_takeable = True
             return Dialogue.GIDEON_QUEST_COMPLETE_DIALOGUE

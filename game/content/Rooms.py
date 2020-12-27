@@ -53,7 +53,7 @@ BACK_VERANDAH_ROOM = Room.Room("Back Verandah", BACK_VERANDAH_DESCRIPTION, {}, [
 LAUNDRY_ROOM = Room.Room("Laundry Room", LAUNDRY_DESCRIPTION, {}, [], [])
 BATHROOM = Room.Room("Bathroom", BATHROOM_DESCRIPTION, {}, [Items.MOUSE_FIGURINE], [])
 KITCHEN = Room.Room("Kitchen", KITCHEN_DESCRIPTION, {}, [Items.FRIDGE, Items.CHOCOLATE], [])
-GUEST_ROOM = Room.Room("Guest Room", GUEST_ROOM_DESCRIPTION, {}, [Items.CAT_FIGURINE, Items.CAT_TOY, Items.CAT_TOY_BOX],
+GUEST_ROOM = Room.Room("Guest Room", GUEST_ROOM_DESCRIPTION, {}, [Items.CAT_FIGURINE, Items.BALL, Items.CAT_TOY_BOX],
                        [People.JAY])
 MUM_ROOM = Room.Room("Mum's Room", MUM_ROOM_DESCRIPTION, {}, [Items.PIG_FIGURINE], [People.AZURI])
 LOUNGE_ROOM_ENTRY = Room.Room("Lounge Room Entry", LOUNGE_ROOM_ENTRY_DESCRIPTION, {}, [Items.DOG_FIGURINE], [People.GIDEON])

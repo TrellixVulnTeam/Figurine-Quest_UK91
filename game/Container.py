@@ -31,5 +31,4 @@ class Container(Item.Item):
             item.is_visible = True
             item.is_takeable = True
             self.contains.remove(item)
-            room.items.append(item)
         return description

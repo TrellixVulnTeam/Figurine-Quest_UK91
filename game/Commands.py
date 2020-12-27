@@ -27,7 +27,7 @@ def parse_quit_command():
 
 # Display the room description.
 def parse_look_command(player):
-    return player.location.desc
+    return player.location.describe_room()
 
 
 def parse_inventory_command(player):

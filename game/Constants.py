@@ -15,10 +15,11 @@ YOU_WIN_MESSAGE = "Congratulations. You win! You collected all five figurines. H
 ITEM_NOT_VISIBLE_STRING = "You don't see the "
 ITEM_NOT_TAKEABLE_STRING = "You can't reach the "
 ITEM_TAKEN_STRING = "You took the "
+ITEM_GIVEN_STRING = "You give the "
 YOU_SEE_AN_ITEM_STRING = "You see an "
 YOU_SEE_A_ITEM_STRING = "You see a "
 ITEM_NOT_IN_INVENTORY_STRING = "You don't have the "
-ITEM_REMOVED_FROM_CONTAINER_STRING = "You remove the "
+ITEM_REMOVED_FROM_CONTAINER_STRING = "You see the "
 EMPTY_INVENTORY_STRING = "Nothing."
 
 # Person
