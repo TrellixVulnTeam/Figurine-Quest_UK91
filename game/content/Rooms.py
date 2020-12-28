@@ -6,7 +6,7 @@ FRONT_YARD_DESCRIPTION = "You are out on the front yard of your home. It is well
                          "for gardening. You see exits to the west, north, and east."
 SIDE_PATH_DESCRIPTION = "You are on the left path. You can see that a lot of work has been done to it over the last \n" \
                         "couple of years to keep it in the shade. That's how Nan keeps busy, after all. You see \n" \
-                        "exits to the north and south."
+                        "exits to the north and east."
 ZOE_CAR_DESCRIPTION = "Near the street, you see Zoe's pink car. She must be visiting. You see exits to the west and \n" \
                       "north."
 DRIVEWAY_DESCRIPTION = "You are in the driveway of your home. Your car is there. You can hear the faint sound of \n" \
@@ -51,7 +51,7 @@ SHED_ROOM = Room.Room("Shed", SHED_DESCRIPTION, {}, [Items.BEAR_FIGURINE], [Peop
 BACK_GARDEN_ROOM = Room.Room("Back Garden", BACK_GARDEN_DESCRIPTION, {}, [], [People.NAN, People.ZOE])
 BACK_VERANDAH_ROOM = Room.Room("Back Verandah", BACK_VERANDAH_DESCRIPTION, {}, [], [])
 LAUNDRY_ROOM = Room.Room("Laundry Room", LAUNDRY_DESCRIPTION, {}, [], [])
-BATHROOM = Room.Room("Bathroom", BATHROOM_DESCRIPTION, {}, [Items.MOUSE_FIGURINE], [])
+BATHROOM = Room.Room("Bathroom", BATHROOM_DESCRIPTION, {}, [], [])
 KITCHEN = Room.Room("Kitchen", KITCHEN_DESCRIPTION, {}, [Items.FRIDGE, Items.CHOCOLATE], [])
 GUEST_ROOM = Room.Room("Guest Room", GUEST_ROOM_DESCRIPTION, {}, [Items.CAT_FIGURINE, Items.BALL, Items.CAT_TOY_BOX],
                        [People.JAY])

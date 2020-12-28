@@ -66,5 +66,5 @@ PLAYER_HELP = "This is a text game. To do things, read the description of the pl
               "examine <object>: Examine an object more closely. To look at a ball, type \"examine ball\". \n" \
               "get <object>: Get an object. The object must be in the room and accessible to you. \n" \
               "talk <person>: Talk to a person. The person must be in the room. \n" \
-              "give <object> <person>: Give someone an item. To give Jay the ball, you would type \"give ball jay\"" \
+              "give <person> <object>: Give someone an item. To give Jay the ball, you would type \"give jay ball\"" \
               "\n\nGood luck! If you run into trouble, remember to read carefully and 'examine' things closely!"
