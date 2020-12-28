@@ -6,8 +6,10 @@ from game.people import Gideon
 # Items
 TEST_ITEM_IN_INVENTORY = Item.Item("test", ["keyword"], "Short desc", "Long desc", True, True)
 TEST_ITEM_ON_GROUND = Item.Item("test 2", ["keyword"], "Short desc 2", "Long desc 2", True, True)
-TEST_ITEM_NOT_PRESENT = Item.Item("test not present", ["keyword"], "Short desc not present", "Long desc not present", True, True)
-TEST_ITEM_NO_GET = Item.Item("test ungettable", ["keyword"], "Short desc ungettable", "Long desc ungettable", True, False)
+TEST_ITEM_NOT_PRESENT = Item.Item("test not present", ["keyword"], "Short desc not present",
+                                  "Long desc not present", True, True)
+TEST_ITEM_NO_GET = Item.Item("test ungettable", ["keyword"], "Short desc ungettable", "Long desc ungettable", True,
+                             False)
 TEST_ITEM_NO_VIS = Item.Item("test invisible", ["keyword"], "Short desc invisible", "Long desc invisible", False, True)
 
 # Containers
@@ -35,7 +37,7 @@ TEST_ROOM_WITH_INVISIBLE_PERSON = Room.Room("Test Room With Invis Person", "This
 TEST_ROOM_WITH_GIDEON = Room.Room("Test Room With Gideon", "This is a test room for testing Gideon.",
                                   {"n": TEST_ROOM_2}, [TEST_ITEM_ON_GROUND], [TEST_GIDEON])
 TEST_ROOM_WITH_INVISIBLE_GIDEON = Room.Room("Test Room With Gideon", "This is a test room for testing Gideon.",
-                                  {"n": TEST_ROOM_2}, [TEST_ITEM_ON_GROUND], [TEST_INVISIBLE_GIDEON])
+                                            {"n": TEST_ROOM_2}, [TEST_ITEM_ON_GROUND], [TEST_INVISIBLE_GIDEON])
 
 # Players
 TEST_PLAYER = Player.Player(TEST_ROOM, [TEST_ITEM_IN_INVENTORY])

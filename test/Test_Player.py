@@ -1,29 +1,30 @@
-import unittest
 import copy
+import unittest
+
 from game import Player
-from test import Objects
+from game.content import Test_Objects
 
 
 class TestPlayer(unittest.TestCase):
 
     def test_inventory(self):
-        player = Player.Player(Objects.TEST_ROOM, [Objects.TEST_ITEM_IN_INVENTORY])
+        player = Player.Player(Test_Objects.TEST_ROOM, [Test_Objects.TEST_ITEM_IN_INVENTORY])
         self.assertEqual("You have: \ntest", player.get_inventory())
 
     def test_add_item(self):
-        player = Player.Player(Objects.TEST_ROOM, [Objects.TEST_ITEM_IN_INVENTORY])
-        player.add_item(Objects.TEST_ITEM_ON_GROUND)
+        player = Player.Player(Test_Objects.TEST_ROOM, [Test_Objects.TEST_ITEM_IN_INVENTORY])
+        player.add_item(Test_Objects.TEST_ITEM_ON_GROUND)
         self.assertEqual("You have: \ntest\ntest 2", player.get_inventory())
 
     def test_remove_item(self):
-        player = Player.Player(Objects.TEST_ROOM, [Objects.TEST_ITEM_IN_INVENTORY])
-        player.remove_item(Objects.TEST_ITEM_IN_INVENTORY)
+        player = Player.Player(Test_Objects.TEST_ROOM, [Test_Objects.TEST_ITEM_IN_INVENTORY])
+        player.remove_item(Test_Objects.TEST_ITEM_IN_INVENTORY)
         self.assertEqual("You have: \n", player.get_inventory())
 
     def test_move_room(self):
-        player = Player.Player(Objects.TEST_ROOM, [Objects.TEST_ITEM_IN_INVENTORY])
-        room = copy.copy(Objects.TEST_ROOM)
-        room_two = copy.copy(Objects.TEST_ROOM_2)
+        player = Player.Player(Test_Objects.TEST_ROOM, [Test_Objects.TEST_ITEM_IN_INVENTORY])
+        room = copy.copy(Test_Objects.TEST_ROOM)
+        room_two = copy.copy(Test_Objects.TEST_ROOM_2)
 
         self.assertEqual(room.desc, player.location.desc)
         string = player.move_room("n")
@@ -31,8 +32,8 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(room_two.describe_room(), string)
 
     def test_move_room_with_invalid_move(self):
-        player = Player.Player(Objects.TEST_ROOM, [Objects.TEST_ITEM_IN_INVENTORY])
-        room = copy.copy(Objects.TEST_ROOM)
+        player = Player.Player(Test_Objects.TEST_ROOM, [Test_Objects.TEST_ITEM_IN_INVENTORY])
+        room = copy.copy(Test_Objects.TEST_ROOM)
 
         self.assertEqual(player.location.desc, room.desc)
         string = player.move_room("w")

@@ -1,5 +1,5 @@
-from game.content import Rooms, Dialogue
-from game import Player, CommandParser, Constants
+from game import Player, Command_Parser, Constants
+from game.content import Rooms
 
 
 # Main game loop
@@ -13,7 +13,7 @@ def game_loop():
     while continue_playing:
         print('Enter command:')
         user_input = input()
-        print(CommandParser.parse_input(user_input, player))
+        print(Command_Parser.parse_input(user_input, player))
 
 
 game_loop()

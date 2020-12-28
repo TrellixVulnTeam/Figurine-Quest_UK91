@@ -1,6 +1,7 @@
 # Start
 WELCOME_MESSAGE = "Welcome to Figurine Quest! \n" \
-                   "You'll be playing as Melody in this game, doing a task for your mother, once you find her. \n" \
+                   "You'll be playing as Melody in this game, doing a task for your mother, " \
+                  "once you find her. \n" \
                    "This is a text game. To interact with the game, type a command below. \n" \
                    "If you are unsure what commands are available, type 'help'. \n" \
                    "Good luck!"
@@ -9,7 +10,8 @@ WELCOME_MESSAGE = "Welcome to Figurine Quest! \n" \
 YES = ["y", "yes"]
 
 # Victory
-YOU_WIN_MESSAGE = "Congratulations. You win! You collected all five figurines. Hope you enjoyed playing!"
+YOU_WIN_MESSAGE = "Congratulations. You win! You collected all five figurines. " \
+                  "Hope you enjoyed playing!"
 
 # Item
 ITEM_NOT_VISIBLE_STRING = "You don't see the "

@@ -1,3 +1,5 @@
+import sys
+
 from game import Constants
 
 
@@ -21,7 +23,7 @@ def parse_quit_command():
     user_input = input()
     if user_input.lower() in Constants.YES:
         print("Thank you for playing!")
-        exit()
+        sys.exit()
     return "Okay."
 
 
@@ -30,15 +32,16 @@ def parse_look_command(player):
     return player.location.describe_room()
 
 
+# Show the player's inventory.
 def parse_inventory_command(player):
     return player.get_inventory()
 
 
 # Single target commands
 
-# Returns long description of an item if it is present in the room or player's inventory.
+# Returns long description of an item if it is present in the room or the player's inventory.
 def parse_examine_command(user_input, player):
-    target = joinList(user_input[1:])
+    target = join_list(user_input[1:])
     for item in player.location.items:
         if target == item.name.lower() or target in item.keywords:
             return item.examine(player)
@@ -50,7 +53,7 @@ def parse_examine_command(user_input, player):
 
 # Gets the item if it is present in the room.
 def parse_take_command(user_input, player):
-    target = joinList(user_input[1:])
+    target = join_list(user_input[1:])
     for item in player.location.items:
         if target == item.name.lower() or target in item.keywords:
             return item.take(player)
@@ -59,7 +62,7 @@ def parse_take_command(user_input, player):
 
 # Talks to an NPC and gets dialogue in return.
 def parse_talk_command(user_input, player):
-    target = joinList(user_input[1:])
+    target = join_list(user_input[1:])
     for person in player.location.people:
         if target == person.name.lower():
             return person.talk(player)
@@ -71,7 +74,7 @@ def parse_talk_command(user_input, player):
 # Tries to give an item to an NPC.
 def parse_give_command(user_input, player):
     target = user_input[1]
-    item_name = joinList(user_input[2:])
+    item_name = join_list(user_input[2:])
     item = None
 
     # TODO: Dehack this?
@@ -88,6 +91,9 @@ def parse_give_command(user_input, player):
     return Constants.PERSON_NOT_VISIBLE_STRING + target + '.'
 
 
-def joinList(input_list):
+# Provides support for multiple word items like 'dog figurine'.
+# Takes a split command such as ['take', 'dog', 'figurine']. Joins up the item to be
+# 'dog figurine', then returns it to be parsed.
+def join_list(input_list):
     separator = ' '
     return separator.join(input_list)

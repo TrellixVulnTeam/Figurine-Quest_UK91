@@ -1,7 +1,7 @@
 import unittest
 
 from game import Container, Player, Room, Constants
-from test import Objects
+from game.content import Test_Objects
 
 
 class TestContainer(unittest.TestCase):
@@ -15,15 +15,15 @@ class TestContainer(unittest.TestCase):
 
     def test_container_with_item(self):
         container = Container.Container("test", ["keyword"], "Short desc", "Long desc",
-                                        True, False, [Objects.TEST_ITEM_ON_GROUND])
+                                        True, False, [Test_Objects.TEST_ITEM_ON_GROUND])
         room = Room.Room("Test Room", "desc", {}, [container], [])
         player = Player.Player(room, [])
-        self.assertEqual(container.contains, [Objects.TEST_ITEM_ON_GROUND])
+        self.assertEqual(container.contains, [Test_Objects.TEST_ITEM_ON_GROUND])
         self.assertEqual(room.items, [container])
 
         actual = container.examine(player)
         expected = container.long_desc + '. ' + Constants.ITEM_REMOVED_FROM_CONTAINER_STRING +\
-                   Objects.TEST_ITEM_ON_GROUND.name + '.'
+                   Test_Objects.TEST_ITEM_ON_GROUND.name + '.'
         self.assertEqual(expected, actual)
         self.assertEqual(container.contains, [])
-        self.assertEqual(room.items, [container, Objects.TEST_ITEM_ON_GROUND])
+        self.assertEqual(room.items, [container, Test_Objects.TEST_ITEM_ON_GROUND])

@@ -1,5 +1,6 @@
 from game import Item, Constants
 
+
 # A container is an item that holds other items. When examined, the container reveals the new items.
 # TODO: Require 'open' instead of 'examine'?
 class Container(Item.Item):

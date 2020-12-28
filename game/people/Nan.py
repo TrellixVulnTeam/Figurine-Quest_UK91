@@ -1,3 +1,5 @@
+import sys
+
 from game import Person, Constants
 from game.content import Dialogue, Items
 
@@ -34,7 +36,7 @@ class Nan(Person.Person):
                     # You win the game!
                     print(Dialogue.NAN_VICTORY_DIALOGUE)
                     print(Constants.YOU_WIN_MESSAGE)
-                    exit()
+                    sys.exit()
                 return Constants.ITEM_GIVEN_STRING + item.name + "to " + self.name + '. ' + \
                        Dialogue.NAN_SUBSEQUENT_DIALOGUE_1 + str(self.figurines_found) + \
                        Dialogue.NAN_SUBSEQUENT_DIALOGUE_2 + str(len(self.figurines_wanted)) + \

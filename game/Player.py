@@ -33,5 +33,4 @@ class Player:
         if direction in current_room.exits:
             self.location = current_room.exits[direction]
             return current_room.exits[direction].enter_room()
-        else:
-            return Constants.EXIT_NOT_FOUND_STRING
+        return Constants.EXIT_NOT_FOUND_STRING
